@@ -9,12 +9,12 @@ export default function generateMessage(login, password) {
         messages.push("Поле ввода логина пусто.");
     }
 
-    if(password.length === 0) {
-        messages.push("Поле ввода пароля пусто.");
-    }
-
     if(new ContentStringWatcher(login).normalString() === false) {
         messages.push("Поле ввода логина содержит запретные символы.")
+    }
+
+    if(password.length === 0) {
+        messages.push("Поле ввода пароля пусто.");
     }
 
     if(new ContentStringWatcher(password).normalString() === false) {

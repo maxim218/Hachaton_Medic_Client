@@ -1,5 +1,7 @@
 "use strict";
 
+import Log from "./Log";
+
 function generateRandomString() {
     let s = "";
     for(let i = 0; i < 10; i++) {
@@ -12,6 +14,7 @@ function generateRandomString() {
 
 export default function sendPost(operation, bodyObj, callback, urlParam) {
     const url = urlParam + operation + "/" + generateRandomString();
+    Log("Url: " + url);
     const bodyString = JSON.stringify(bodyObj);
     console.log("--------------------------------------");
     console.log("Method: POST");
