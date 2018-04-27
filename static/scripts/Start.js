@@ -4,6 +4,7 @@ import Log from "./Log";
 import makeJQueryElements from "./makeJQueryElements";
 import PagesHider from "./PagesHider";
 import LoginSignupMoving from "./LoginSignupMoving";
+import registrationFunc from "./registrationFunc";
 
 class Start {
     constructor() {
@@ -11,6 +12,7 @@ class Start {
         makeJQueryElements();
         PagesHider();
         LoginSignupMoving();
+        registrationFunc();
         document.querySelector('.main-center-box__log-in-box').hidden = false;
         document.querySelector('.main-center-box').hidden = false;
     }

@@ -6,6 +6,8 @@ export default function PagesHider() {
        ".main-center-box__log-in-box",
    ];
 
+    $(".dialog-window").dialog("close");
+
    arr.forEach((x) => {
        const element = document.querySelector(x.toString());
        element.hidden = true;
