@@ -29,6 +29,9 @@ export default function authFunc() {
                         // close window
                         PagesHider();
                         Log("Show page");
+                        localStorage.setItem("LOGIN_X", login);
+                        localStorage.setItem("PASSWORD_X", password);
+                        document.querySelector(".menu-page__login-label").innerHTML = "Пользователь " + localStorage.getItem("LOGIN_X");
                         document.querySelector('.main-center-box__menu-page').hidden = false;
                     });
                 }
