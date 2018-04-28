@@ -10,6 +10,7 @@ import fieldsClean from "./fieldsClean";
 import exitFunc from "./exitFunc";
 import AutoAuth from "./AutoAuth";
 import sendPathInfo from "./sendPathInfo";
+import sendGettingRecords from "./sendGettingRecords";
 
 class Start {
     constructor() {
@@ -27,6 +28,7 @@ class Start {
         AutoAuth();
         /////
         sendPathInfo();
+        sendGettingRecords();
     }
 }
 

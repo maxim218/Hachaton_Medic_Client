@@ -3,6 +3,8 @@
 import generateSendDataMessageControl from "./generateSendDataMessageControl";
 import dialogShow from "./dialogShow";
 import Log from "./Log";
+import sendPost from "./PostSender";
+import fieldsClean from "./fieldsClean";
 
 export default function sendPathInfo() {
     const t1 = document.querySelector(".menu-page__user-name-field");
@@ -22,6 +24,22 @@ export default function sendPathInfo() {
             });
         } else {
             // ok ok ok
+            const obj = {
+              c1: user,
+              c2: info,
+              c3: "XXYYZZ",
+              user: localStorage.getItem("LOGIN_X"),
+            };
+
+            sendPost("adding_record", obj, (result) => {
+                console.log(result);
+                if(result === "ADD_RECORD_OK") {
+                    dialogShow("<p>Запись о пациенте успешно добавлена.</p>", function() {
+                        // close window
+                        fieldsClean();
+                    });
+                }
+            }, "http://server-back-123.herokuapp.com/");
         }
     }
 }

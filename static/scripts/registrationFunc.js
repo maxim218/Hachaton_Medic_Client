@@ -37,7 +37,7 @@ export default function registrationFunc() {
                         document.querySelector(".main-center-box__log-in-box").hidden = false;
                     });
                 }
-            }, "http://server-back-123.herokuapp.com/")
+            }, "http://server-back-123.herokuapp.com/");
         } else {
             // bad
             dialogShow(content, function() {
