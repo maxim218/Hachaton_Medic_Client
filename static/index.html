@@ -65,6 +65,35 @@
         <div class = "split"></div>
 
         <div>
+            <b>Режим работы</b>
+            <div class = "split"></div>
+            <button class = "btn" onclick = "f1()">Добавление записей</button>
+            <button class = "btn" onclick = "f2()">Просмотр записей</button>
+        </div>
+
+        <script>
+            function hideTwoBoxes() {
+                document.querySelector(".menu-page__page-first").hidden = true;
+                document.querySelector(".menu-page__page-second").hidden = true;
+            }
+
+            function f1() {
+                hideTwoBoxes();
+                document.querySelector(".menu-page__page-first").hidden = false;
+                $(".dialog-window").dialog("close");
+            }
+
+            function f2() {
+                hideTwoBoxes();
+                document.querySelector(".menu-page__page-second").hidden = false;
+                $(".dialog-window").dialog("close");
+            }
+        </script>
+
+        <div class = "split"></div>
+        <div class = "split"></div>
+
+        <div class = "menu-page__page-first" hidden>
             <h3>Добавление записей</h3>
             <p>
                 Пациент
@@ -80,7 +109,7 @@
             </p>
         </div>
 
-        <div>
+        <div class = "menu-page__page-second" hidden>
             <h3>Просмотр записей</h3>
             <p>
                 Пациент
