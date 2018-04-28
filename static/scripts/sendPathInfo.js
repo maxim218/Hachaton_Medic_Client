@@ -23,23 +23,43 @@ export default function sendPathInfo() {
                 // close window
             });
         } else {
+            // noinspection JSAnnotator
+            function generateRandomString() {
+                let s = "";
+                for(let i = 0; i < 10; i++) {
+                    const r = Math.random();
+                    s = s + r.toString();
+                }
+                let q = s.split(".").join("");
+                return q.toString();
+            }
+
             // ok ok ok
             const obj = {
-              c1: user,
-              c2: info,
-              c3: "XXYYZZ",
-              user: localStorage.getItem("LOGIN_X"),
+                $class: "org.bcdoc.History",
+                id: generateRandomString() + 'kk' + generateRandomString(),
+                title: info,
+                tag: [],
+                record: info,
+                created_at: new Date().toISOString(),
+                updated_at: new Date().toISOString(),
+                doctor_id: localStorage.getItem("LOGIN_X"),
+                patient_id: user,
+                  c1: user,
+                  c2: info,
+                  c3: "XXYYZZ",
+                  tt_user: localStorage.getItem("LOGIN_X"),
             };
 
-            sendPost("adding_record", obj, (result) => {
+            sendPost("History", obj, (result) => {
                 console.log(result);
-                if(result === "ADD_RECORD_OK") {
+                if(result !== null) {
                     dialogShow("<p>Запись о пациенте успешно добавлена.</p>", function() {
                         // close window
                         fieldsClean();
                     });
                 }
-            }, "http://server-back-123.herokuapp.com/");
+            }, "http://188.225.34.176:3000/api/");
         }
     }
 }

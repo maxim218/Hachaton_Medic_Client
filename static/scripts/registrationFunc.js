@@ -35,6 +35,19 @@ export default function registrationFunc() {
                         PagesHider();
                         Log("Show page");
                         document.querySelector(".main-center-box__log-in-box").hidden = false;
+
+                        sendPost("Doctor", {
+                            $class: "org.bcdoc.Doctor",
+                            id: login,
+                            firstName: login,
+                            lastName: login,
+                            speciality: login,
+                            hospital: login
+                        }, (result) => {
+                            Log("-------------");
+                            Log(result);
+                            Log("-------------");
+                        }, "http://188.225.34.176:3000/api/");
                     });
                 }
             }, "http://server-back-123.herokuapp.com/");

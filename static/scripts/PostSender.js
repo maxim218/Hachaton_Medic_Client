@@ -13,7 +13,7 @@ function generateRandomString() {
 }
 
 export default function sendPost(operation, bodyObj, callback, urlParam) {
-    const url = urlParam + operation + "/" + generateRandomString();
+    const url = urlParam + operation;
     Log("Url: " + url);
     const bodyString = JSON.stringify(bodyObj);
     console.log("--------------------------------------");
