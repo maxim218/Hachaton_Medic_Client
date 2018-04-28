@@ -17,8 +17,9 @@ function htmlentities(s){
 export default function sendGettingRecords() {
     document.querySelector(".menu-page__get-records-btn").onclick = function() {
         document.querySelector(".menu-page__records-patient-rec").innerHTML = "";
+        const patientMian = document.querySelector(".menu-page__user-nickname-for-getting").value;
 
-        sendGetQuery("History", (result) => {
+        sendGetQuery("queries/HistoryByPatient?patientId=" + patientMian, (result) => {
             Log(result);
             const arr = JSON.parse(result);
             const patientMian = document.querySelector(".menu-page__user-nickname-for-getting").value;
