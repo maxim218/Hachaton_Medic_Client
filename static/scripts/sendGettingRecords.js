@@ -2,6 +2,7 @@
 
 import sendPost from "./PostSender";
 import Log from "./Log";
+import sendGetQuery from "./sendGetQuery";
 
 
 function htmlentities(s){
@@ -15,20 +16,38 @@ function htmlentities(s){
 
 export default function sendGettingRecords() {
     document.querySelector(".menu-page__get-records-btn").onclick = function() {
-        const login = localStorage.getItem("LOGIN_X");
+        document.querySelector(".menu-page__records-patient-rec").innerHTML = "";
 
-        sendPost("get_records_of_user", {
-            userName: login
-        }, (result) => {
+        sendGetQuery("History", (result) => {
             Log(result);
             const arr = JSON.parse(result);
+            const patientMian = document.querySelector(".menu-page__user-nickname-for-getting").value;
+            let ans = "";
+
+            document.querySelector(".menu-page__records-patient-rec").innerHTML = "";
+
+            let flag = false;
 
             arr.forEach((element) => {
-                const pacient = htmlentities(element.record_header);
-                const content = htmlentities(element.record_body);
-                const doctor = htmlentities(element.author);
+                if(element.patient_id === patientMian) {
+                    const record = htmlentities(element.record);
+                    const doctor = htmlentities(element.doctor_id);
+                    const patient = htmlentities(element.patient_id);
+                    const s1 = "<b>Врач: </b>" + doctor + "<br>";
+                    const s2 = "<b>Пациент: </b>" + patient + "<br>";
+                    const s3 = "<b>Запись: </b>" + record + "<br>";
+                    const s = "<div class = 'record-class'>" + s1 + s2 + s3 + "</div>" + "<br>";
+                    ans += s;
+                    flag = true;
+                }
             });
 
-        }, "http://server-back-123.herokuapp.com/");
+            if(flag === true) {
+                document.querySelector(".menu-page__records-patient-rec").innerHTML = "<h3>" + "Записи пациента " + patientMian + "</h3>" + ans;
+            } else {
+                document.querySelector(".menu-page__records-patient-rec").innerHTML = "<h3>" + "Записи пациента " + patientMian + "</h3>" + "<p>Пусто</p>";
+            }
+
+        }, "http://188.225.34.176:3000/api/");
     }
 }

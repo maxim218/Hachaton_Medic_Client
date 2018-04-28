@@ -83,3 +83,8 @@ select {
 .move:hover {
     color: #2c60ff;
 }
+
+.record-class {
+    padding: 15px;
+    background: #cccccc;
+}
