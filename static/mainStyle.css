@@ -58,7 +58,13 @@ select {
     font-family: "Trebuchet MS", sans-serif;
     border: 1px solid #cccccc;
     outline: none;
-    border-radius: 3px;
+}
+
+.menu-page__user-record-field {
+    min-width: 300px;
+    max-width: 400px;
+    min-height: 150px;
+    max-height: 250px;
 }
 
 .field:focus {
@@ -67,7 +73,6 @@ select {
     font-family: "Trebuchet MS", sans-serif;
     border: 1px solid #666666;
     outline: none;
-    border-radius: 3px;
 }
 
 .move {
