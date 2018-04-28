@@ -1,5 +1,7 @@
 "use strict";
 
+import fieldsClean from "./fieldsClean";
+
 export default function PagesHider() {
    const arr = [
        ".main-center-box__sign-up-box",
@@ -8,6 +10,8 @@ export default function PagesHider() {
    ];
 
    $(".dialog-window").dialog("close");
+
+   fieldsClean();
 
    arr.forEach((x) => {
        const element = document.querySelector(x.toString());

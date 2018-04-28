@@ -6,6 +6,7 @@ import PagesHider from "./PagesHider";
 import LoginSignupMoving from "./LoginSignupMoving";
 import registrationFunc from "./registrationFunc";
 import authFunc from "./authFunc";
+import fieldsClean from "./fieldsClean";
 
 class Start {
     constructor() {
@@ -15,6 +16,7 @@ class Start {
         LoginSignupMoving();
         registrationFunc();
         authFunc();
+        fieldsClean();
         document.querySelector('.main-center-box__log-in-box').hidden = false;
         document.querySelector('.main-center-box').hidden = false;
     }
