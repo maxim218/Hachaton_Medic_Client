@@ -88,3 +88,14 @@ select {
     padding: 15px;
     background: #cccccc;
 }
+
+.main-center-box {
+    position: absolute;
+    width: 800px;
+    padding: 35px;
+    left: 20%;
+    z-index: 5;
+    background: white;
+    border: 2px solid #CCCCCC;
+    border-radius: 15px;
+}
