@@ -86,7 +86,8 @@ select {
 
 .record-class {
     padding: 15px;
-    background: #cccccc;
+    background: #ffffff5e;
+    border-radius: 5px;
 }
 
 .main-center-box {
